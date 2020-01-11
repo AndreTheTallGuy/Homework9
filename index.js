@@ -2,8 +2,9 @@ const inquirer = require("inquirer")
 const fs = require("fs")
 const util = require("util")
 const axios = require("axios")
-const html = require("./generateHTML.js")
-const PDFDocument = require('pdfkit');
+module.exports = require("./generateHTML.js")
+const electron = require('electron')
+const proc = require('child_process')
 
 
 const readFileAsync = util.promisify(fs.readFile);
@@ -48,15 +49,30 @@ inquirer
         })
 
     })
-    .then(function ({ username }) {
-        const queryUrl = `https://api.github.com/users/${username}/starred`;
-        axios.get(queryUrl).then(function (res) {
-            // const stars
-            console.log(res.length());
-        })
-    })
+// .then(function ({ username }) {
+//     const queryUrl = `https://api.github.com/users/${username}/starred`;
+//     axios.get(queryUrl).then(function (res) {
+//         // const stars
+//         console.log(res.length());
+//     })
+// })
 
-// .then(function ({ name, from, bio, linked, git }) {
-//     console.log(name, from, bio, linked, git);
 
 // github api: 4ff665d703e6da2dada3227637504bd27d6c6c44
+
+convertFactory = require('electron-html-to');
+
+var conversion = convertFactory({
+    converterPath: convertFactory.converters.PDF
+});
+
+conversion({ html: '<h1>Hello World</h1>' }, function (err, result) {
+    if (err) {
+        return console.error(err);
+    }
+
+    console.log(result.numberOfPages);
+    console.log(result.logs);
+    result.stream.pipe(fs.createWriteStream('test.pdf'));
+    conversion.kill();
+});
