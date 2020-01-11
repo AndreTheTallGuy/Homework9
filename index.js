@@ -1,8 +1,10 @@
-var inquirer = require("inquirer")
-var fs = require("fs")
-var util = require("util")
-var axios = require("axios")
-var html = require("./generateHTML.js")
+const inquirer = require("inquirer")
+const fs = require("fs")
+const util = require("util")
+const axios = require("axios")
+const html = require("./generateHTML.js")
+const PDFDocument = require('pdfkit');
+
 
 const readFileAsync = util.promisify(fs.readFile);
 const writeFileAsync = util.promisify(fs.writeFile);
@@ -46,16 +48,15 @@ inquirer
         })
 
     })
-    // .then(function ({ username }) {
-    //     const queryUrl = `"https://api.github.com/users/${username}/starred`;
-    //     axios.get(queryUrl).then(function (res) {
-    //         // const stars
-    //         console.log(res.length());
-    //     })
-    // })
+    .then(function ({ username }) {
+        const queryUrl = `https://api.github.com/users/${username}/starred`;
+        axios.get(queryUrl).then(function (res) {
+            // const stars
+            console.log(res.length());
+        })
+    })
 
 // .then(function ({ name, from, bio, linked, git }) {
 //     console.log(name, from, bio, linked, git);
 
 // github api: 4ff665d703e6da2dada3227637504bd27d6c6c44
-
