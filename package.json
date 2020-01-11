@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/AndreTheTallGuy/Homework9/issues"
   },
-  "homepage": "https://github.com/AndreTheTallGuy/Homework9#readme"
+  "homepage": "https://github.com/AndreTheTallGuy/Homework9#readme",
+  "dependencies": {
+    "axios": "^0.19.1",
+    "electron": "^7.1.8",
+    "electron-html-to": "^2.6.0",
+    "inquirer": "^7.0.3",
+    "util": "^0.12.1"
+  }
 }
