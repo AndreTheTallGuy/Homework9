@@ -1,39 +1,4 @@
-const colors = {
-  green: {
-    wrapperBackground: "#E6E1C3",
-    headerBackground: "#C1C72C",
-    headerColor: "black",
-    photoBorderColor: "black"
-  },
-  blue: {
-    wrapperBackground: "#5F64D3",
-    headerBackground: "#26175A",
-    headerColor: "white",
-    photoBorderColor: "#73448C"
-  },
-  pink: {
-    wrapperBackground: "#879CDF",
-    headerBackground: "#FF8374",
-    headerColor: "white",
-    photoBorderColor: "#FEE24C"
-  },
-  red: {
-    wrapperBackground: "#DE9967",
-    headerBackground: "#870603",
-    headerColor: "white",
-    photoBorderColor: "white"
-  }
-};
-
-function generateHTML(data) {
-  /*
-  data = {
-    photo: "http://placehold.it/200/200",
-    color: "blue"
-  }
-  
-  */
-  return `<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
    <head>
       <meta charset="UTF-8" />
@@ -67,7 +32,7 @@ function generateHTML(data) {
          height: 100%;
          }
          .wrapper {
-         background-color: ${colors[data.color].wrapperBackground};
+         background-color: #E6E1C3;
          padding-top: 100px;
          }
          body {
@@ -109,8 +74,8 @@ function generateHTML(data) {
          display: flex;
          justify-content: center;
          flex-wrap: wrap;
-         background-color: ${colors[data.color].headerBackground};
-         color: ${colors[data.color].headerColor};
+         background-color: #C1C72C;
+         color: black;
          padding: 10px;
          width: 95%;
          border-radius: 6px;
@@ -121,7 +86,7 @@ function generateHTML(data) {
          border-radius: 50%;
          object-fit: cover;
          margin-top: -75px;
-         border: 6px solid ${colors[data.color].photoBorderColor};
+         border: 6px solid black;
          box-shadow: rgba(0, 0, 0, 0.3) 4px 1px 20px 4px;
          }
          .photo-header h1, .photo-header h2 {
@@ -164,8 +129,8 @@ function generateHTML(data) {
          .card {
            padding: 20px;
            border-radius: 6px;
-           background-color: ${colors[data.color].headerBackground};
-           color: ${colors[data.color].headerColor};
+           background-color: #C1C72C;
+           color: black;
            margin: 20px;
          }
          
@@ -190,38 +155,36 @@ function generateHTML(data) {
       <body>
     <div class="container">
         <div class="photo-header">
-            <img src="${data.photo}" alt="photo of user">
+            <img src="https://avatars2.githubusercontent.com/u/57810414?v=4" alt="photo of user">
             <div class="wrapper">
             </div>
             <div class="hi links-nav">
                 <h3>Hi!</h3>
-                <h3>My name is ${data.name}</h3>
-                <h6>Currently @ ${data.company}</h6>
+                <h3>My name is Andre Entrekin</h3>
+                <h6>Currently @ Northwestern</h6>
             </div>
-            <div class="links-nav"><i class="fas fa-location-arrow"></i>${data.location}
-                <i class="fab fa-github-square"></i> <a href="${data.git}">GitHub</a>
-                <i class="fas fa-rss"></i> <a href="${data.blog}">Blog</a>
+            <div class="links-nav"><i class="fas fa-location-arrow"></i>Chicago
+                <i class="fab fa-github-square"></i> <a href="https://github.com/AndreTheTallGuy">GitHub</a>
+                <i class="fas fa-rss"></i> <a href="www.andreentrekin.com">Blog</a>
             </div>
         </div>
     </div>
     <div class="bio col ">
-        <h3>${data.bio}</h3>
+        <h3>Developer honing his skills</h3>
     </div>
     <div class="container col grid">
         <div class="card row">Public Repositories
-            <div>${data.repos}</div>
+            <div>14</div>
         </div>
 
         <div class="card row">Followers
-            <div>${data.followers}</div>
+            <div>0</div>
         </div>
         <div class="card row">GitHub Stars
-            <div>${data.stars}</div>
+            <div>undefined</div>
         </div>
         <div class="card row">Following
-            <div>${data.following}</div>
+            <div>0</div>
         </div>
     </div>
-</body>`
-}
-module.exports = generateHTML
+</body>

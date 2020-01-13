@@ -3,6 +3,8 @@ const fs = require("fs")
 const util = require("util")
 const axios = require("axios")
 const generateHTML = require('./generateHTML.js')
+// console.log(generateHTML({ "color": "blue" }));
+
 const electron = require('electron')
 const proc = require('child_process')
 const convertFactory = require('electron-html-to');
@@ -27,7 +29,7 @@ inquirer
             ]
         },
     ])
-    .then(function ({ username }) {
+    .then(function ({ username, colorful }) {
         console.log(username);
         console.log(`====================================`);
         const queryUrl = `https://api.github.com/users/${username}`;
@@ -45,8 +47,22 @@ inquirer
             const followers = res.data.followers; // followers
             const following = res.data.following; // following
 
-            const read = readFileAsync("generateHTML", "utf8")
-            writeFileAsync("index.html", generateHTML.JSON.parse)
+            const data = {
+                photo: photo,
+                color: colorful,
+                name: name,
+                company: company,
+                username: username,
+                location: location,
+                git: git,
+                blog: blog,
+                bio: bio,
+                repos: repos,
+                followers: followers,
+                following: following
+            }
+            // const read = readFileAsync("generateHTML", "utf8")
+            // writeFileAsync("index.html", generateHTML(data))
 
 
 
@@ -54,23 +70,24 @@ inquirer
 
 
 
-            // console.log(`all these consts`);
-            // converterPath: convertFactory.converters.PDF
-            // var conversion = convertFactory({
-            // });
-            // console.log('conversion declared')
-            // conversion({
-            //     html: generateHTML
-            // }, function (err, result) {
-            //     console.log(`conversion callback started`)
-            //     if (err) {
-            //         return console.error(err);
-            //     }
-            //     console.log(result.numberOfPages);
-            //     console.log(result.logs);
-            //     result.stream.pipe(fs.createWriteStream('test.pdf'));
-            //     conversion.kill();
-            // });
+            console.log(`all these consts`);
+            converterPath: convertFactory.converters.PDF
+            var conversion = convertFactory({
+            });
+            console.log('conversion declared')
+            conversion({
+                html: generateHTML
+            }, function (err, result) {
+                console.log(`conversion callback started`)
+                if (err) {
+                    return console.error(err);
+                }
+                console.log(result.numberOfPages);
+                console.log(result.logs);
+                result.stream.pipe(fs.createWriteStream('test.pdf'));
+
+            });
+
         })
         // .then(function ({ username }) {
         //     const queryUrl = `https://api.github.com/users/${username}/starred`;
