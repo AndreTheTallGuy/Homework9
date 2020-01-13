@@ -18,7 +18,7 @@ inquirer
         {
             type: "list",
             message: "What is your favorite color?",
-            name: "color",
+            name: "colorful",
             choices: [
                 "green",
                 "blue",
@@ -44,28 +44,33 @@ inquirer
             const repos = res.data.public_repos; //repos
             const followers = res.data.followers; // followers
             const following = res.data.following; // following
-            console.log(`all these consts`);
-            var conversion = convertFactory({
-                converterPath: convertFactory.converters.PDF
-            });
+
+            const read = readFileAsync("generateHTML", "utf8")
+            writeFileAsync("index.html", generateHTML.JSON.parse)
 
 
 
 
 
-            console.log('conversion declared')
-            conversion({
-                html: generateHTML
-            }, function (err, result) {
-                console.log(`conversion callback started`)
-                if (err) {
-                    return console.error(err);
-                }
-                console.log(result.numberOfPages);
-                console.log(result.logs);
-                result.stream.pipe(fs.createWriteStream('test.pdf'));
-                conversion.kill();
-            });
+
+
+            // console.log(`all these consts`);
+            // converterPath: convertFactory.converters.PDF
+            // var conversion = convertFactory({
+            // });
+            // console.log('conversion declared')
+            // conversion({
+            //     html: generateHTML
+            // }, function (err, result) {
+            //     console.log(`conversion callback started`)
+            //     if (err) {
+            //         return console.error(err);
+            //     }
+            //     console.log(result.numberOfPages);
+            //     console.log(result.logs);
+            //     result.stream.pipe(fs.createWriteStream('test.pdf'));
+            //     conversion.kill();
+            // });
         })
         // .then(function ({ username }) {
         //     const queryUrl = `https://api.github.com/users/${username}/starred`;
