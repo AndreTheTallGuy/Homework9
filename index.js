@@ -75,11 +75,13 @@ inquirer
             var conversion = convertFactory({
             });
             console.log('conversion declared')
+            const newHTML = generateHTML(data)
             conversion({
-                html: generateHTML
+                html: newHTML
             }, function (err, result) {
                 console.log(`conversion callback started`)
                 if (err) {
+                    console.log('we errorrerrrreerd')
                     return console.error(err);
                 }
                 console.log(result.numberOfPages);
