@@ -29,6 +29,7 @@ inquirer
     const queryUrl = `https://api.github.com/users/${username}`;
     axios.get(queryUrl).then(function(res) {
       console.log(`axios get is successful`);
+
       const name = res.data.name;
       const company = res.data.company;
       const photo = res.data.avatar_url; //photo
