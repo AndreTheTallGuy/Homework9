@@ -8,6 +8,7 @@ const proc = require("child_process");
 const convertFactory = require("electron-html-to");
 const readFileAsync = util.promisify(fs.readFile);
 const writeFileAsync = util.promisify(fs.writeFile);
+
 inquirer
   .prompt([
     {
