@@ -39,7 +39,6 @@ function generateHTML(data) {
       .bio {
         margin-top: 30px;
     }
-
     .grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
