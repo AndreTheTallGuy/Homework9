@@ -26,13 +26,6 @@ const colors = {
 };
 
 function generateHTML(data) {
-  /*
-  data = {
-    photo: "http://placehold.it/200/200",
-    color: "blue"
-  }
-  
-  */
   return `<!DOCTYPE html>
 <html lang="en">
    <head>
@@ -198,8 +191,12 @@ function generateHTML(data) {
                 <h3>My name is ${data.name}</h3>
                 <h6>Currently @ ${data.company}</h6>
             </div>
-            <div class="links-nav"><i class="fas fa-location-arrow"></i>${data.location}
-                <i class="fab fa-github-square"></i> <a href="${data.git}">GitHub</a>
+            <div class="links-nav"><i class="fas fa-location-arrow"></i>${
+              data.location
+            }
+                <i class="fab fa-github-square"></i> <a href="${
+                  data.git
+                }">GitHub</a>
                 <i class="fas fa-rss"></i> <a href="${data.blog}">Blog</a>
             </div>
         </div>
@@ -222,6 +219,6 @@ function generateHTML(data) {
             <div>${data.following}</div>
         </div>
     </div>
-</body>`
+</body>`;
 }
-module.exports = generateHTML
+module.exports = generateHTML;
