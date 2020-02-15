@@ -56,8 +56,6 @@ inquirer
         followers: followers,
         following: following
       };
-      // const read = readFileAsync("generateHTML", "utf8")
-      // writeFileAsync("index.html", generateHTML(data))
 
       console.log(`all these consts`);
       converterPath: convertFactory.converters.PDF;
