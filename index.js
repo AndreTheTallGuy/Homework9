@@ -3,8 +3,6 @@ const fs = require("fs");
 const util = require("util");
 const axios = require("axios");
 const generateHTML = require("./generateHTML.js");
-// console.log(generateHTML({ "color": "blue" }));
-
 const electron = require("electron");
 const proc = require("child_process");
 const convertFactory = require("electron-html-to");
